@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Allocation Period</title>
+    <style>
+        body {
+            font-family: Monaco, monospace;
+            font-size: 32px;
+            color: #0B347D;
+            background-color: #5FB3F9;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="title">Loading...</div>
+
+    <script>
+        fetch("period.json")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("title").textContent = data.period_title;
+            })
+            .catch(error => {
+                document.getElementById("title").textContent = "Failed to load period.";
+                console.error("Error fetching period.json:", error);
+            });
+    </script>
+</body>
+</html>
